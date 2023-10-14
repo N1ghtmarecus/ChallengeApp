@@ -1,20 +1,17 @@
-﻿var name = "Ewa";
-var gender = "female";
-var age = 33;
+﻿var number          = 4566;
+var numberInString  = number.ToString();                // "4566"
+List<char> signs    = new List<char>(numberInString);   // '4', '5', '6', '6'
+var counter         = 0;
 
-if (age < 30 && gender == "female")
+for (int i = 0; i < 10; i++)
 {
-    Console.WriteLine("Kobieta poniżej 30 lat.");
-}
-else if (name == "Ewa" && age == 33)
-{
-    Console.WriteLine("Ewa, lat 33.");
-}
-else if (age < 18 && gender != "female")
-{
-    Console.WriteLine("Niepełnoletni mężczyzna.");
-}
-else
-{
-    Console.WriteLine("Przykro nam, nie mamy takiej osoby w bazie.");
+    foreach (char sign in signs)
+    {
+        if (sign.ToString() == i.ToString())
+        {
+            counter++;
+        }
+    }
+    Console.WriteLine(i + " => " + counter);
+    counter = 0;
 }
