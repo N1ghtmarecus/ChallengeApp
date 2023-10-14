@@ -1,8 +1,8 @@
-﻿var name    = "Ewa";
-var gender  = "female";
-var age     = 33;
+﻿var name = "Ewa";
+var gender = "female";
+var age = 33;
 
-if (age < 30)
+if (age < 30 && gender == "female")
 {
     Console.WriteLine("Kobieta poniżej 30 lat.");
 }
