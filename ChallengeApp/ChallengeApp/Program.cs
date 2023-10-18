@@ -1,24 +1,50 @@
-﻿Console.Write("Wprowadź liczbę, którą chcesz sprawdzić: ");
-var number = Console.ReadLine();
-List<char> signs = new List<char>(number);
-var counter = 0;
+﻿using ChallengeApp;
 
-for (int i = 0; i < 10; i++)
+Employee employee1 = new("Adam", "Nowak", 38);
+Employee employee2 = new("Monika", "Kowalska", 27);
+Employee employee3 = new("Zuzia", "Grabowska", 19);
+
+employee1.AddScore(5);
+employee1.AddScore(9);
+employee1.AddScore(8);  // 26
+employee1.AddScore(1);
+employee1.AddScore(3);
+
+employee2.AddScore(2);
+employee2.AddScore(5);
+employee2.AddScore(1);  // 22
+employee2.AddScore(4);
+employee2.AddScore(10);
+
+employee3.AddScore(8);
+employee3.AddScore(1);
+employee3.AddScore(7);  // 31
+employee3.AddScore(8);
+employee3.AddScore(7);
+
+List<Employee> employees = new()
 {
-    foreach (char sign in signs)
+    employee1, employee2, employee3
+};
+
+int maxResult = -1;
+Employee? employeeWithMaxResult = null;
+
+foreach (var employee in employees)
+{
+    if(employee.Result > maxResult)
     {
-        if (sign.ToString() == i.ToString())
-        {
-            counter++;
-        }
+        maxResult = employee.Result;
+        employeeWithMaxResult = employee;
     }
-    if (counter == 0)
-        Console.WriteLine("Cyfra " + i + " nie występuje! ");
-    else if (counter == 1)
-        Console.WriteLine("Cyfra " + i + " występuje tylko " + counter + " raz.");
-    else
-    {
-        Console.WriteLine("Cyfra " + i + " występuje " + counter + " razy.");
-    }
-    counter = 0;
 }
+
+Console.WriteLine("Najwyższa liczba punktów: "
+    + maxResult
+    + ". \nPracownik, który ją osiągnął to "
+    + employeeWithMaxResult.Name
+    + " "
+    + employeeWithMaxResult.Surname
+    + " w wieku "
+    + employeeWithMaxResult.Age
+    + " lat.");
