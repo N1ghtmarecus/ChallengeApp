@@ -39,11 +39,16 @@
         public void WhenComparedTwoObjects_ShouldNotBeTheSame()
         {
             // arrange
-            var employee1 = new Employee("Aleksandra", "Kowalska", 23);
-            var employee2 = new Employee("Aleksandra", "Kowalska", 23);
+            var employee1 = GetEmployee("Aleksandra", "Kowalska", 23);
+            var employee2 = GetEmployee("Aleksandra", "Kowalska", 23);
             // act
             // assert
             Assert.AreNotEqual(employee1, employee2);
+        }
+
+        private Employee GetEmployee(string name, string surname, int age)
+        {
+            return new Employee(name, surname, age);
         }
     }
 }
