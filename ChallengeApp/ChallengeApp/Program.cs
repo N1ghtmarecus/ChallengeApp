@@ -4,10 +4,10 @@ var employee1 = new Employee("Adam", "Nowak", 38);
 var employee2 = new Employee("Monika", "Kowalska", 27);
 var employee3 = new Employee("Zuzia", "Grabowska", 19);
 
-employee1.AddGrade(5);
-employee1.AddGrade(9);
-employee1.AddGrade(8);  // 26
-employee1.AddGrade(1);
+employee1.AddGrade(5000);
+employee1.AddGrade("9");
+employee1.AddGrade("Maciej");  // 26
+employee1.AddGrade('p');
 employee1.AddGrade(3);
 
 employee2.AddGrade(2);
