@@ -3,51 +3,35 @@ namespace ChallengeApp.Tests
     public class EmployeeTests
     {
         [Test]
-        public void WhenEmployeeGetGrade_ThenCheckMinGrade()
+        public void WhenEmployeeGetGradeA_ShouldBeAddedHundredPoints()
         {
             // arrange
             var employee = new Employee("Piotr", "Kleks", 41);
-            employee.AddGrade(56.23424f);
-            employee.AddGrade(-15.345345f);
-            employee.AddGrade(25.567567f);
+            employee.AddGrade('A');
 
             // act
             var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(-15.345345f, statistics.Min);
+            Assert.That(100, Is.EqualTo(statistics.Max));
         }
 
         [Test]
-        public void WhenEmployeeGetGrade_ThenCheckMaxGrade()
+        public void WhenEmployeeGetGradesABCDE_ThenAverageLetterShouldBeB()
         {
             // arrange
             var employee = new Employee("Piotr", "Kleks", 41);
-            employee.AddGrade(56.23424f);
-            employee.AddGrade(-15.345345f);
-            employee.AddGrade(25.567567f);
+            employee.AddGrade('A');
+            employee.AddGrade('B');
+            employee.AddGrade('C');
+            employee.AddGrade('D');
+            employee.AddGrade('E');
 
             // act
             var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(56.23424f, statistics.Max);
-        }
-
-        [Test]
-        public void WhenEmployeeGetGrades_ThenCheckAverageOfTheseGrades()
-        {
-            // arrange
-            var employee = new Employee("Piotr", "Kleks", 41);
-            employee.AddGrade(56.23424f);
-            employee.AddGrade(-15.345345f);
-            employee.AddGrade(25.567567f);
-
-            // act
-            var statistics = employee.GetStatistics();
-
-            // assert
-            Assert.AreEqual(22.152154f, statistics.Average);
+            Assert.That('B', Is.EqualTo(statistics.AverageLetter));
         }
     }
 }
