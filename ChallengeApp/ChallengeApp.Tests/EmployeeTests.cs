@@ -6,7 +6,7 @@ namespace ChallengeApp.Tests
         public void WhenEmployeeGetGradeA_ShouldBeAddedHundredPoints()
         {
             // arrange
-            var employee = new Employee("Piotr", "Kleks", 41);
+            var employee = new Employee("Piotr", "Kleks", 41, 'M');
             employee.AddGrade('A');
 
             // act
@@ -20,7 +20,7 @@ namespace ChallengeApp.Tests
         public void WhenEmployeeGetGradesABCDE_ThenAverageLetterShouldBeB()
         {
             // arrange
-            var employee = new Employee("Piotr", "Kleks", 41);
+            var employee = new Employee("Piotr", "Kleks", 41, 'M');
             employee.AddGrade('A');
             employee.AddGrade('B');
             employee.AddGrade('C');

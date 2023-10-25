@@ -4,11 +4,11 @@ Console.WriteLine("Welcome to The X Files Project");
 Console.WriteLine("==============================");
 Console.WriteLine();
 
-var employee = new Employee("Adam", "Nowak", 38);
+var employee = new Employee("Adam", "Nowak", 38, 'M');
 
 while (true)
 {
-    Console.Write("\nPlease enter the next employee's grade \nor press 'q' to quit and see the statistics: ");
+    Console.Write("\nPlease enter the next employee's grade \n(or press 'q' to quit and see the statistics): ");
     var input = Console.ReadLine();
     if (input == "q")
     { 
