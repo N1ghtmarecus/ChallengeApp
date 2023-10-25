@@ -1,29 +1,36 @@
 ﻿using ChallengeApp;
 
-Console.WriteLine("Welcome The X Files Project");
-Console.WriteLine("===========================");
+Console.WriteLine("Welcome to The X Files Project");
+Console.WriteLine("==============================");
 Console.WriteLine();
 
-var employee1 = new Employee("Adam", "Nowak", 38);
+var employee = new Employee("Adam", "Nowak", 38);
 
 while (true)
 {
-    Console.Write("\nPlease enter the next employee's grade: ");
+    Console.Write("\nPlease enter the next employee's grade \nor press 'q' to quit and see the statistics: ");
     var input = Console.ReadLine();
     if (input == "q")
     { 
         break; 
     }
-    employee1.AddGrade(input);
+
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Exeption cathced: {ex.Message}");
+    }
 }
 
-employee1.GradesCounter();
+var statistics = employee.GetStatistics();
 
-var statistics = employee1.GetStatistics();
-
-Console.WriteLine("\n--------------");
+Console.WriteLine("\n-----------");
 Console.WriteLine("Statistics:");
-Console.WriteLine("--------------");
+Console.WriteLine("-----------");
+Console.WriteLine($"Total amount of correct grades: {statistics.Total}");
 Console.WriteLine($"Average: {statistics.Average:N2}");
 Console.WriteLine($"AverageLetter: {statistics.AverageLetter}");
 Console.WriteLine($"Min: {statistics.Min}");

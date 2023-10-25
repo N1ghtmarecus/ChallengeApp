@@ -22,14 +22,9 @@
             }
 
             else if (grade < 0)
-                Console.WriteLine("Your grade is too low! Please enter the grade from 0 to 100.");
-            else 
-                Console.WriteLine("Your grade is too high! Please enter the grade from 0 to 100.");
-        }
-
-        public void GradesCounter()
-        {
-            Console.WriteLine($"\nTotal amount of correct grades: {this.grades.Count}");
+                throw new Exception("Your grade is too low! Please enter the grade from 0 to 100.");
+            else
+                throw new Exception("Your grade is too high! Please enter the grade from 0 to 100.");
         }
 
         public void AddGrade(string grade)
@@ -41,7 +36,7 @@
                 this.AddGrade(cResult);
 
             else
-                Console.WriteLine("String is not float!");
+                throw new Exception("String is not float!");
         }
 
         public void AddGrade(char grade)
@@ -69,8 +64,7 @@
                     this.AddGrade(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong Letter!");
-                    break;
+                    throw new Exception("Wrong Letter!");
             }
         }
 
@@ -95,6 +89,7 @@
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
+            statistics.Total = this.grades.Count;
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
@@ -127,7 +122,6 @@
                     break;
 
             }
-
             return statistics;
         }
     }
