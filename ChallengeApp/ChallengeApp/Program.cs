@@ -4,11 +4,12 @@ Console.WriteLine("Welcome to The X Files Project");
 Console.WriteLine("==============================");
 Console.WriteLine();
 
-var employee = new Employee("Adam", "Nowak", 38, 'M');
+// var employee = new Employee("Adam", "Nowak", 38, 'M');
+var supervisor = new Supervisor("Paweł", "Kowalski", 47, 'M');
 
 while (true)
 {
-    Console.Write("\nPlease enter the next employee's grade \n(or press 'q' to quit and see the statistics): ");
+    Console.Write("\nPlease enter the next supervisor's grade \n(or press 'q' to quit and see the statistics): ");
     var input = Console.ReadLine();
     if (input == "q")
     { 
@@ -17,7 +18,7 @@ while (true)
 
     try
     {
-        employee.AddGrade(input);
+        supervisor.AddGrade(input);
     }
     catch (Exception ex)
     {
@@ -25,7 +26,7 @@ while (true)
     }
 }
 
-var statistics = employee.GetStatistics();
+var statistics = supervisor.GetStatistics();
 
 Console.WriteLine("\n-----------");
 Console.WriteLine("Statistics:");
