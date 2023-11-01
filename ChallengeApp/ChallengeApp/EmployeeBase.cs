@@ -12,6 +12,7 @@
             this.Age = age;
             this.Gender = gender;
         }
+
         public string Name { get; private set; }
 
         public string Surname { get; private set; }
