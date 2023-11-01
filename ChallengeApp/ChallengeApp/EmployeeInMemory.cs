@@ -8,12 +8,16 @@
         {
         }
 
+        public override event GradeAddedDelegate GradeAdded;
+
         public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
-                Console.WriteLine($"Succesfull added grade: {grade:N2}");
+
+                if (GradeAdded != null)
+                    GradeAdded(this, new EventArgs());
             }
 
             else if (grade < 0)

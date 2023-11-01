@@ -4,10 +4,13 @@
 
     {
         private const string fileName = "grades.txt";
+
         public EmployeeInFile(string name, string surname, int age, char gender)
             : base(name, surname, age, gender)
         {
         }
+
+        public override event GradeAddedDelegate GradeAdded;
 
         public override void AddGrade(float grade)
         {
@@ -16,7 +19,9 @@
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
-                    Console.WriteLine($"Succesfull added grade: {grade:N2}");
+
+                    if (GradeAdded != null)
+                        GradeAdded(this, new EventArgs());
                 }
             }
             else if (grade < 0)
@@ -139,7 +144,6 @@
                 default:
                     statistics.AverageLetter = 'E';
                     break;
-
             }
             return statistics;
         }

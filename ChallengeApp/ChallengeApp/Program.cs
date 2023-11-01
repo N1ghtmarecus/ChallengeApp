@@ -1,14 +1,21 @@
 ﻿using ChallengeApp;
 
+Console.WriteLine("==============================");
 Console.WriteLine("Welcome to The X Files Project");
 Console.WriteLine("==============================");
 Console.WriteLine();
 
-EmployeeInFile employee = new EmployeeInFile("Adam", "Nowak", 38, 'M');
+var employee = new EmployeeInFile("Adam", "Nowak", 38, 'M');
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Succesfull added grade!");
+}
 
 while (true)
 {
-    Console.Write("\nPlease enter the next supervisor's grade \n(or press 'q' to quit and see the statistics): ");
+    Console.Write("\nPlease enter the next employee's grade \n(or press 'q' to quit and see the statistics): ");
     var input = Console.ReadLine();
     if (input == "q")
     {
@@ -21,7 +28,7 @@ while (true)
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Exeption cathced: {ex.Message}");
+        Console.WriteLine($"Exeption catched: {ex.Message}");
     }
 }
 
